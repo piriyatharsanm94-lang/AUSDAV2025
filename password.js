@@ -17,16 +17,20 @@ document.getElementById("forgotForm").addEventListener("submit", e => {
   .then(res => res.text())
   .then(data => {
     if (data === "otp_sent") {
-      document.getElementById("forgotStatus");
-      
+      document.getElementById("forgotStatus").innerText = "✅ OTP sent to your email.";
+
       // Hide email form, show OTP form
       document.getElementById("forgotForm").style.display = "none";
       document.getElementById("otpForm").style.display = "block";
 
       startOtpCountdown();
     } else {
-      document.getElementById("forgotStatus").innerText = ;
+      document.getElementById("forgotStatus").innerText = "❌ Failed to send OTP. Try again.";
     }
+  })
+  .catch(err => {
+    document.getElementById("forgotStatus").innerText = "⚠️ Network error!";
+    console.error(err);
   });
 });
 
@@ -36,7 +40,7 @@ document.getElementById("otpForm").addEventListener("submit", e => {
   const otp = document.getElementById("otp").value;
 
   if (document.getElementById("otp").disabled) {
-    document.getElementById("forgotStatus");
+    document.getElementById("forgotStatus").innerText = "❌ OTP expired. Request a new one.";
     return;
   }
 
@@ -52,15 +56,18 @@ document.getElementById("otpForm").addEventListener("submit", e => {
   .then(data => {
     if (data === "otp_valid") {
       clearInterval(otpTimer);
-
-      document.getElementById("forgotStatus");
+      document.getElementById("forgotStatus").innerText = "✅ OTP verified!";
 
       // Hide OTP form, show Reset form
       document.getElementById("otpForm").style.display = "none";
       document.getElementById("resetForm").style.display = "block";
     } else {
-      document.getElementById("forgotStatus");
+      document.getElementById("forgotStatus").innerText = "❌ Invalid OTP. Try again.";
     }
+  })
+  .catch(err => {
+    document.getElementById("forgotStatus").innerText = "⚠️ Network error!";
+    console.error(err);
   });
 });
 
@@ -87,14 +94,18 @@ document.getElementById("resetForm").addEventListener("submit", e => {
   .then(data => {
     if (data === "password_updated") {
       document.getElementById("forgotStatus").innerText = "✅ Password updated successfully!";
-      
-      // Optionally redirect to login page
+
+      // Redirect after 2s
       setTimeout(() => {
         window.location.href = "index.html";
       }, 2000);
     } else {
-      document.getElementById("forgotStatus");
+      document.getElementById("forgotStatus").innerText = "❌ Failed to update password.";
     }
+  })
+  .catch(err => {
+    document.getElementById("forgotStatus").innerText = "⚠️ Network error!";
+    console.error(err);
   });
 });
 
