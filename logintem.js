@@ -33,7 +33,7 @@ loginForm.addEventListener("submit", async (e) => {
       const batchYear = data.batchYear ? data.batchYear : "0";
       const batchYearNumber = Number(batchYear); // converts "2022" → 2022
 
-      loginStatus.textContent = `✅ Login successful! Welcome, ${data.username}. Your batch year: ${batchYearNumber}`;
+      loginStatus.textContent = `✅ Login successful! Welcome, ${data.username}`;
       loginStatus.style.color = "green";
 
       // Store login info locally
