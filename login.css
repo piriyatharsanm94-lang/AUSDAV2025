@@ -61,3 +61,19 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
+.forgot-btn {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #007BFF; /* blue color */
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.forgot-btn:hover {
+  color: #0056b3; /* darker blue on hover */
+  text-decoration: underline;
+}
+

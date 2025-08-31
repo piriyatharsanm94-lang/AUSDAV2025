@@ -161,6 +161,32 @@ body {
 #status a:hover {
   text-decoration: underline;
 }
+/* Home Button */
+.home-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  background: #007bff;       /* Blue background */
+  color: #fff;               /* White text */
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  background: #0056b3;       /* Darker blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.home-btn i {
+  width: 18px;
+  height: 18px;
+}
+
 
 /* Responsive */
 @media screen and (max-width: 480px) {

@@ -9,7 +9,7 @@ const previewText = document.getElementById("previewText");
 const renameInput = document.getElementById("renameInput");
 
 // Replace with your Google Apps Script Web App URL
-const UPLOAD_URL = "https://script.google.com/macros/s/AKfycbyCHSY361iiD3GCE4erLgocXyd2oSYz-iex07SJNWV5P-35QJsECybrzG7YlVsRYi2Ggw/exec";
+const UPLOAD_URL = "https://script.google.com/macros/s/AKfycby5BjpbkTr-5gFK4g9ZYDuVOPz73CsD6K70Kxnxz94Q4PL5SYQYaSpa7UDQDz4MKwHrxg/exec";
 
 
 
@@ -109,4 +109,3 @@ function resetLogoutTimer() {
 
 // Start timer on page load
 resetLogoutTimer();
-

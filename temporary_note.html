@@ -6,9 +6,18 @@
   <title>AUSDAV</title>
   <link rel="icon" href="img/icon.jpg">
   <link rel="stylesheet" href="temporary.css">
+  <script src="https://unpkg.com/lucide@latest"></script> <!-- for icons -->
 </head>
 <body>
   <div class="login-container">
+    <!-- Header with Home button -->
+    <div class="header-bar">
+      <h2>AUSDAV</h2>
+      <a href="userinterface.html" class="home-btn">
+        <i data-lucide="home"></i> Home
+      </a>
+    </div>
+
     <div class="login-box">
       <img src="img/notepad1.png" alt="Logo" class="logo">
       
@@ -51,6 +60,9 @@
       })
       .catch(err => alert("❌ Error: " + err));
     });
+
+    lucide.createIcons(); // initialize icons
   </script>
 </body>
 </html>
+

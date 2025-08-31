@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="userinterface.css">
+  <script src="https://kit.fontawesome.com/yourfontawesomeid.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="logo">
+        <img src="img/icon.jpg" alt="Logo">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="announce22.html">Announcements</a></li>
+        <li><a href="#" class="active">Dashboard</a></li>
+    </ul>
+
+    <!-- Notification Bell -->
+    <div class="notification">
+        <i class="fas fa-bell"></i>
+        <span class="badge" id="notifBadge">0</span>
+    </div>
+
+    <!-- Logout Button -->
+    <a href="index.html" class="logout-btn">Logout</a>
+    </nav>
+
+
+
+  <!-- Main Dashboard -->
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <div class="card-container">
+
+      <div class="cards">
+
+        <!-- Documentary Card -->
+        <div class="card" onclick="location.href='project.html'">
+          <span class="tag">Acc</span>
+          <div class="card-body blue">
+            <p>Accounts details</p>
+          </div>
+        </div>
+
+        <!-- Feedback Card -->
+        <div class="card" onclick="location.href='feedback22.html'">
+          <span class="tag">Feedback</span>
+          <div class="card-body green">
+            <p>Feedback</p>
+          </div>
+        </div>
+
+        <!-- Add Announcement Card (hidden by default, only for admins) -->
+        <div id="adminCard" class="card admin-only" onclick="location.href='admin_announce.html'">
+            <span class="tag">Announcement for Members</span>
+            <div class="card-body red">
+                <p style="color: black;">➕ Add Announcement</p>
+            </div>
+        </div>
+        <div id="adminCard2" class="card" onclick="window.location.href='https://docs.google.com/spreadsheets/d/12-AhAxG8zFll96kuF9QRJzIeLgt1u2Qb68JrYiTGHD0/edit?usp=sharing'">
+            <span class="tag">Temporary accounts note</span>
+            <div class="card-body red" style="background-color: rgb(5, 72, 72);">
+                <p>Not Finised Accounts</p>            
+            </div>
+        </div>
+            <div id="adminCard3" class="card" onclick="window.location.href='https://docs.google.com/spreadsheets/d/1kECmlENwamN0d_BYYyUgwLAWwsEPUKILyV39psxyX1Q/edit?usp=sharing'">
+            <span class="tag">Feedbacks</span>
+            <div class="card-body red" style="background-color: rgb(128, 145, 145);">
+                <p>Feedbacks</p>            
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="interface2022.js"></script>
+</body>
+</html>
