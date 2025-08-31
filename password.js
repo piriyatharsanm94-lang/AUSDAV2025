@@ -16,7 +16,9 @@ document.getElementById("forgotForm").addEventListener("submit", e => {
   })
   .then(res => res.text())
   .then(data => {
-    if (data === "otp_sent") {
+    console.log("Server Response:", data); // 🔍 Debugging
+
+    if (data.trim().toLowerCase() === "otp_sent") {
       document.getElementById("forgotStatus").innerText = "✅ OTP sent to your email.";
 
       // Hide email form, show OTP form
@@ -25,7 +27,7 @@ document.getElementById("forgotForm").addEventListener("submit", e => {
 
       startOtpCountdown();
     } else {
-      document.getElementById("forgotStatus").innerText = "❌ Failed to send  OTP. Try again.";
+      document.getElementById("forgotStatus").innerText = "❌ Failed to send OTP. Try again.";
     }
   })
   .catch(err => {
@@ -54,7 +56,9 @@ document.getElementById("otpForm").addEventListener("submit", e => {
   })
   .then(res => res.text())
   .then(data => {
-    if (data === "otp_valid") {
+    console.log("Server Response:", data); // 🔍 Debugging
+
+    if (data.trim().toLowerCase() === "otp_valid") {
       clearInterval(otpTimer);
       document.getElementById("forgotStatus").innerText = "✅ OTP verified!";
 
@@ -92,13 +96,17 @@ document.getElementById("resetForm").addEventListener("submit", e => {
   })
   .then(res => res.text())
   .then(data => {
-    if (data === "password_updated") {
+    console.log("Server Response:", data); // 🔍 Debugging
+
+    if (data.trim().toLowerCase() === "password_updated") {
       document.getElementById("forgotStatus").innerText = "✅ Password updated successfully!";
 
-      // Redirect after 2s
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 2000);
+      // Hide Reset + Back button
+      document.querySelector("#resetForm button[type=submit]").style.display = "none";
+      document.getElementById("backToOtp").style.display = "none";
+
+      // Show Login button
+      document.getElementById("goToLogin").style.display = "inline-block";
     } else {
       document.getElementById("forgotStatus").innerText = "❌ Failed to update password.";
     }
@@ -107,6 +115,11 @@ document.getElementById("resetForm").addEventListener("submit", e => {
     document.getElementById("forgotStatus").innerText = "⚠️ Network error!";
     console.error(err);
   });
+});
+
+// 🔗 Login redirect button
+document.getElementById("goToLogin").addEventListener("click", () => {
+  window.location.href = "index.html"; // change if needed
 });
 
 // 🕒 OTP Countdown (40s)
