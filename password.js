@@ -17,7 +17,7 @@ document.getElementById("forgotForm").addEventListener("submit", e => {
   .then(res => res.text())
   .then(data => {
     if (data === "otp_sent") {
-      document.getElementById("forgotStatus").innerText = "✅ OTP sent to email. Expires in 40s";
+      document.getElementById("forgotStatus");
       
       // Hide email form, show OTP form
       document.getElementById("forgotForm").style.display = "none";
@@ -25,7 +25,7 @@ document.getElementById("forgotForm").addEventListener("submit", e => {
 
       startOtpCountdown();
     } else {
-      document.getElementById("forgotStatus").innerText = "❌ Email not found";
+      document.getElementById("forgotStatus").innerText = ;
     }
   });
 });
@@ -36,7 +36,7 @@ document.getElementById("otpForm").addEventListener("submit", e => {
   const otp = document.getElementById("otp").value;
 
   if (document.getElementById("otp").disabled) {
-    document.getElementById("forgotStatus").innerText = "❌ OTP expired. Request a new one.";
+    document.getElementById("forgotStatus");
     return;
   }
 
@@ -53,13 +53,13 @@ document.getElementById("otpForm").addEventListener("submit", e => {
     if (data === "otp_valid") {
       clearInterval(otpTimer);
 
-      document.getElementById("forgotStatus").innerText = "✅ OTP verified";
+      document.getElementById("forgotStatus");
 
       // Hide OTP form, show Reset form
       document.getElementById("otpForm").style.display = "none";
       document.getElementById("resetForm").style.display = "block";
     } else {
-      document.getElementById("forgotStatus").innerText = "❌ Invalid or expired OTP";
+      document.getElementById("forgotStatus");
     }
   });
 });
@@ -93,7 +93,7 @@ document.getElementById("resetForm").addEventListener("submit", e => {
         window.location.href = "index.html";
       }, 2000);
     } else {
-      document.getElementById("forgotStatus").innerText = "❌ Failed to reset password";
+      document.getElementById("forgotStatus");
     }
   });
 });
