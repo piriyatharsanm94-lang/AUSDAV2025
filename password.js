@@ -25,7 +25,7 @@ document.getElementById("forgotForm").addEventListener("submit", e => {
 
       startOtpCountdown();
     } else {
-      document.getElementById("forgotStatus").innerText = "❌ Failed to send OTP. Try again.";
+      document.getElementById("forgotStatus").innerText = "❌ Failed to send  OTP. Try again.";
     }
   })
   .catch(err => {
